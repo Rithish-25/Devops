@@ -1,0 +1,22 @@
+services:
+  backend:
+    build:
+      context: ./Back
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./Back/.env
+    restart: always
+
+  frontend:
+    build:
+      context: ./Front
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    env_file:
+      - ./Front/.env
+    depends_on:
+      - backend
+    restart: always

@@ -1,0 +1,459 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+
+:root {
+  /* Premium Color Palette */
+  --color-primary: #0F172A; /* Deep Navy */
+  --color-secondary: #C0A062; /* Gold/Cream */
+  --color-accent: #334155; /* Slate */
+  --color-background: #F8FAFC; /* Off-white */
+  --color-text: #1E293B; /* Dark Slate */
+  --color-text-light: #64748B; /* Light Slate */
+  --color-white: #FFFFFF;
+  
+  /* Gradients */
+  --gradient-gold: linear-gradient(135deg, #C0A062 0%, #E5C585 100%);
+  --gradient-dark: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  color: var(--color-primary);
+  line-height: 1.2;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Button Styles */
+.btn-base {
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s;
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+/* Mobile Menu - Hidden on Desktop */
+.mobile-menu {
+  display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .btn-base {
+    padding: 0.625rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .auth-panel {
+    padding: 2rem 1.5rem !important;
+  }
+
+  .auth-title {
+    font-size: 1.75rem !important;
+  }
+
+  .auth-subtitle {
+    font-size: 1rem !important;
+  }
+
+  .auth-form-input {
+    padding: 0.75rem 1rem !important;
+    font-size: 1rem !important;
+  }
+
+  .auth-otp-input {
+    font-size: 1.375rem !important;
+    letter-spacing: 0.5rem !important;
+  }
+
+  .auth-section {
+    padding-top: 5rem !important;
+  }
+
+  .hero-title {
+    font-size: 3rem !important;
+  }
+
+  .hero-subtitle {
+    font-size: 1.125rem !important;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .features-title {
+    font-size: 2rem !important;
+  }
+
+  section {
+    padding: 3rem 0 !important;
+  }
+
+  .desktop-menu {
+    display: none !important;
+  }
+
+  .mobile-menu-btn {
+    display: flex !important;
+  }
+
+  .mobile-menu {
+    display: flex !important;
+  }
+
+  nav {
+    position: relative !important;
+    padding: 0.75rem 0 !important;
+  }
+
+  /* On mobile, always give navbar a background for visibility */
+  nav.navbar-transparent {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  /* On desktop, allow transparent navbar for pages with dark backgrounds */
+  @media (min-width: 769px) {
+    nav.navbar-transparent {
+      background-color: rgba(255, 255, 255, 0.85) !important;
+      backdrop-filter: blur(10px) !important;
+      box-shadow: none !important;
+    }
+  }
+
+  nav.navbar-scrolled {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+  }
+
+  /* On mobile with white background, use dark text */
+  nav.navbar-transparent .navbar-logo-text {
+    color: var(--color-primary) !important;
+  }
+
+  nav.navbar-transparent .mobile-menu-btn .hamburger-line {
+    background-color: var(--color-primary) !important;
+  }
+
+  /* On desktop, allow white text for transparent navbar on dark backgrounds */
+  @media (min-width: 769px) {
+    nav.navbar-transparent .navbar-logo-text {
+      color: var(--color-primary) !important;
+    }
+
+    nav.navbar-transparent .mobile-menu-btn .hamburger-line {
+      background-color: var(--color-primary) !important;
+    }
+  }
+
+  nav.navbar-scrolled .navbar-logo-text {
+    color: var(--color-primary) !important;
+  }
+
+  nav.navbar-scrolled .mobile-menu-btn .hamburger-line {
+    background-color: var(--color-primary) !important;
+  }
+
+  /* Force dark colors when navbar has any white/light background on mobile */
+  nav[style*="rgba(255"] .navbar-logo-text,
+  nav[style*="rgb(255"] .navbar-logo-text {
+    color: var(--color-primary) !important;
+  }
+
+  nav[style*="rgba(255"] .mobile-menu-btn .hamburger-line,
+  nav[style*="rgb(255"] .mobile-menu-btn .hamburger-line {
+    background-color: var(--color-primary) !important;
+  }
+
+  .logo h2 {
+    font-size: 1.25rem !important;
+  }
+
+  nav .container {
+    padding: 0 1rem !important;
+  }
+
+  .hero-section {
+    padding-top: 4rem !important;
+  }
+
+  .about-hero,
+  .collections-hero {
+    padding: 4rem 1.5rem 3rem !important;
+    min-height: 50vh !important;
+  }
+
+  .about-hero h1,
+  .collections-hero h1 {
+    font-size: 2.5rem !important;
+  }
+
+  .about-hero p,
+  .collections-hero p {
+    font-size: 1.125rem !important;
+  }
+
+  .about-hero img {
+    width: 120px !important;
+    margin-bottom: 1.5rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    padding: 0.5rem 0 !important;
+  }
+
+  .logo h2 {
+    font-size: 1.125rem !important;
+  }
+
+  nav .container {
+    padding: 0 0.75rem !important;
+  }
+
+  .mobile-menu {
+    padding: 1rem !important;
+    width: 260px !important;
+  }
+
+  .hero-section {
+    padding-top: 3rem !important;
+  }
+
+  /* Ensure visibility on small screens - always use dark colors on mobile */
+  nav .navbar-logo-text {
+    color: var(--color-primary) !important;
+  }
+
+  nav .mobile-menu-btn .hamburger-line {
+    background-color: var(--color-primary) !important;
+  }
+
+  /* Ensure navbar always has background on mobile */
+  nav {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  .btn-base {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.875rem;
+  }
+
+  .auth-panel {
+    padding: 1.5rem 1rem !important;
+  }
+
+  .auth-title {
+    font-size: 1.5rem !important;
+  }
+
+  .auth-subtitle {
+    font-size: 0.875rem !important;
+  }
+
+  .auth-form-input {
+    padding: 0.625rem 0.875rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  .auth-otp-input {
+    font-size: 1.25rem !important;
+    letter-spacing: 0.25rem !important;
+  }
+
+  .auth-label {
+    font-size: 0.875rem !important;
+  }
+
+  .auth-link-text {
+    font-size: 0.875rem !important;
+  }
+
+  .hero-title {
+    font-size: 2.5rem !important;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem !important;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .features-title {
+    font-size: 2rem !important;
+  }
+
+  section {
+    padding: 2rem 0 !important;
+  }
+
+  .mobile-menu {
+    width: 260px !important;
+    padding: 1.5rem 1rem !important;
+  }
+
+  .hero-section {
+    padding-top: 3rem !important;
+  }
+
+  .about-hero,
+  .collections-hero {
+    padding: 3rem 1rem 2rem !important;
+    min-height: 40vh !important;
+  }
+
+  .about-hero h1,
+  .collections-hero h1 {
+    font-size: 2rem !important;
+  }
+
+  .about-hero p,
+  .collections-hero p {
+    font-size: 1rem !important;
+  }
+
+  .about-hero img {
+    width: 100px !important;
+    margin-bottom: 1rem !important;
+  }
+
+  section h2 {
+    font-size: 2rem !important;
+  }
+
+  section h3 {
+    font-size: 1.5rem !important;
+  }
+
+  /* Product Details Page Responsive */
+  .product-details-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  .product-details-grid > div:first-child {
+    position: relative !important;
+    top: auto !important;
+  }
+
+  .product-details-hero {
+    padding: 4rem 1rem 3rem !important;
+  }
+
+  .product-details-hero h1 {
+    font-size: 2rem !important;
+  }
+
+  .product-details-hero p {
+    font-size: 1rem !important;
+  }
+
+  /* Ensure product details content is fully visible */
+  .product-details-grid > div:last-child > div {
+    padding: 1.5rem !important;
+  }
+
+  .product-details-grid > div:last-child > div > div {
+    margin-bottom: 1.5rem !important;
+  }
+
+  /* Product Action Buttons - Mobile Responsive */
+  .product-action-buttons {
+    flex-direction: column !important;
+  }
+
+  .product-action-buttons button {
+    width: 100% !important;
+    flex: none !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+  }
+}
+
+/* Prevent body scroll when mobile menu is open */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* Hide number input spinners globally */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}

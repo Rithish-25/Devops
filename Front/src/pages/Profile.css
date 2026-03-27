@@ -1,0 +1,185 @@
+/* Profile container */
+.profile-container {
+  padding-top: 120px;
+  padding-bottom: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.profile-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--color-primary);
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+/* Section Cards */
+.profile-section-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-md);
+}
+
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+/* Personal Info Grid */
+.info-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.info-label {
+  display: block;
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.info-value {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Orders Table - Desktop Default */
+.orders-table-container {
+  overflow-x: auto;
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.orders-table th {
+  padding: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  border-bottom: 2px solid #eee;
+  text-align: left;
+}
+
+.orders-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.order-id {
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+/* Order Status Badge */
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.status-delivered {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.status-processing {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.status-cancelled {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.status-other {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .profile-container {
+    padding-top: 100px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .profile-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .profile-section-card {
+    padding: 1.5rem;
+  }
+
+  /* Hide strict table structure on mobile */
+  .orders-table, .orders-table thead, .orders-table tbody, .orders-table th, .orders-table td, .orders-table tr {
+    display: block;
+  }
+
+  /* Hide table headers */
+  .orders-table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .orders-table tr {
+    border: 1px solid #eee;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background: #fcfcfc;
+  }
+
+  .orders-table td {
+    border: none;
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Add labels via ::before if needed, or rely on layout */
+  .orders-table td:nth-of-type(1)::before { content: "Order ID:"; font-weight: 600; margin-right: 0.5rem; color: var(--color-text-light); }
+  .orders-table td:nth-of-type(2)::before { content: "Date:"; font-weight: 600; margin-right: 0.5rem; color: var(--color-text-light); }
+  .orders-table td:nth-of-type(3)::before { content: "Items:"; font-weight: 600; margin-right: 0.5rem; color: var(--color-text-light); }
+  .orders-table td:nth-of-type(4)::before { content: "Total:"; font-weight: 600; margin-right: 0.5rem; color: var(--color-text-light); }
+  .orders-table td:nth-of-type(5)::before { content: "Status:"; font-weight: 600; margin-right: 0.5rem; color: var(--color-text-light); }
+
+  /* Specific adjustments for cell content */
+  .orders-table td:nth-of-type(3) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .orders-table td:nth-of-type(3)::before {
+    margin-bottom: 0.25rem;
+  }
+
+  /* Adjust min-width reset */
+  .orders-table {
+    min-width: 0;
+  }
+}

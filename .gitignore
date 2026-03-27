@@ -1,0 +1,5 @@
+# Node modules (anywhere)
+node_modules/
+# Environment files (anywhere)
+.env
+.env.*
