@@ -13,6 +13,16 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
+# Define build arguments for environment variables
+ARG REACT_APP_EMAILJS_SERVICE_ID
+ARG REACT_APP_EMAILJS_TEMPLATE_ID
+ARG REACT_APP_EMAILJS_PUBLIC_KEY
+
+# Set them as environment variables for the build process
+ENV REACT_APP_EMAILJS_SERVICE_ID=$REACT_APP_EMAILJS_SERVICE_ID
+ENV REACT_APP_EMAILJS_TEMPLATE_ID=$REACT_APP_EMAILJS_TEMPLATE_ID
+ENV REACT_APP_EMAILJS_PUBLIC_KEY=$REACT_APP_EMAILJS_PUBLIC_KEY
+
 # Build the application
 RUN npm run build
 
